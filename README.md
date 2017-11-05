@@ -168,7 +168,6 @@ Stopwords-plus constitute the sum total of all stopwords and potential phrase-de
 
 (The contents of this set will be later used to partition the lemmatized text into n-gram phrases. But, for now, I will simply remove the stopwords, and work with a 'bag-of-words' approach. I will be developing the graph using unigram texts as vertices)
 
-
 ```python
 stopword_file = open("long_stopwords.txt", "r")
 #Source = https://www.ranks.nl/stopwords
@@ -228,7 +227,7 @@ If weighted_edge[i][j] is zero, it means no edge connection is present between t
 
 There is a connection between the words (and thus between i and j which represents them) if the words co-occur within a window of a specified 'window_size' in the processed_text.
 
-The value of the weighted_edge[i][j] by (1/(distance between positions of words currently represented by i and j)) for every connection discovered between the same words in different locations of the text. 
+The value of the weighted_edge[i][j] is increased by (1/(distance between positions of words currently represented by i and j)) for every connection discovered between the same words in different locations of the text. 
 
 The covered_coocurrences list (which is contain the list of pairs of absolute positions in processed_text of the words whose coocurrence at that location is already checked) is managed so that the same two words located in the same positions in processed_text are not repetitively counted while sliding the window one text unit at a time.
 
