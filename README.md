@@ -219,7 +219,7 @@ print vocabulary
 
 TextRank is a graph based model, and thus it requires us to build a graph. Each words in the vocabulary will serve as a vertex for graph. The words will be represented in the vertices by their index in vocabulary list.  
 
-The edge matrix contains the information of edge connections among all vertices.
+The weighetd_edge matrix contains the information of edge connections among all vertices.
 I am building wieghted undirected edges.
 
 weighted_edge[i][j] contains the weight of the connecting edge between the word vertex represented by vocabulary index i and the word vertex represented by vocabulary j.
