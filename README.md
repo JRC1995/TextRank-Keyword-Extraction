@@ -1,6 +1,9 @@
 
 # Implementation of TextRank for keyword Extraction
-(Based on: https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf)
+
+Based on: 
+
+[TextRank: Bringing Order into Texts - by Rada Mihalcea and Paul Tarau](https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf)
 
 The input text is given below
 
@@ -219,15 +222,15 @@ print vocabulary
 TextRank is a graph based model, and thus it requires us to build a graph. Each words in the vocabulary will serve as a vertex for graph. The words will be represented in the vertices by their index in vocabulary list.  
 
 The weighetd_edge matrix contains the information of edge connections among all vertices.
-I am building wieghted undirected edges.
+I am building a graph with wieghted undirected edges.
 
 weighted_edge[i][j] contains the weight of the connecting edge between the word vertex represented by vocabulary index i and the word vertex represented by vocabulary j.
 
-If weighted_edge[i][j] is zero, it means no edge connection is present between the words represented by index i and j.
+If weighted_edge[i][j] is zero, it means no edge or connection is present between the words represented by index i and j.
 
 There is a connection between the words (and thus between i and j which represents them) if the words co-occur within a window of a specified 'window_size' in the processed_text.
 
-The value of the weighted_edge[i][j] is increased by (1/(distance between positions of words currently represented by i and j)) for every connection discovered between the same words in different locations of the text. 
+I am increasing value of the weighted_edge[i][j] is increased by (1/(distance between positions of words currently represented by i and j)) for every connection discovered between the same words in different locations of the text. 
 
 The covered_coocurrences list (which is contain the list of pairs of absolute positions in processed_text of the words whose coocurrence at that location is already checked) is managed so that the same two words located in the same positions in processed_text are not repetitively counted while sliding the window one text unit at a time.
 
@@ -276,7 +279,7 @@ for i in xrange(0,vocab_len):
 
 ### Calculating weighted summation of connections of a vertex
 
-inout[i] will contain the sum of all the undirected connections\edges associated withe the vertex represented by i.
+inout[i] will contain the total no. of undirected connections\edges associated withe the vertex represented by i.
 
 
 ```python
@@ -410,7 +413,7 @@ print unique_phrases
 
 ### Thinning the list of candidate-keyphrases.
 
-Removing single word keyphrases-candidates that are present multi-word alternatives. 
+Removing single word keyphrase-candidates that are present multi-word alternatives. 
 
 
 ```python
@@ -435,7 +438,7 @@ print unique_phrases
 
 ### Scoring Keyphrases
 
-Scoring the phrases (candidate keyphrases) and building up a list of keyphrases\keywords
+Scoring the phrases (candidate keyphrases) and building up a list of keyphrases
 by listing untokenized versions of tokenized phrases\candidate-keyphrases.
 Phrases are scored by adding the score of their members (words\text-units that were ranked by the graph algorithm)
 
@@ -483,7 +486,7 @@ for keyword in keywords:
 
 ### Ranking Keyphrases
 
-Ranking keyphrases based on their calculated scores. Displaying top keywords_num no. of keyphrases.
+Ranking keyphrases based on their calculated scores. Displaying top 'keywords_num' no. of keyphrases.
 
 
 ```python
