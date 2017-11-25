@@ -294,7 +294,7 @@ for i in xrange(0,vocab_len):
 
 The formula used for scoring a vertex represented by i is:
 
-score[i] = (1-d) + d x [ Summation(j) ( (weighted_edge[i][j]/inout[j]) x score[j] ) ] where j belongs to the list of vertieces that has a connection with i. 
+score[i] = (1-d) + d x [ Summation(j) ( (weighted_edge[i][j]/inout[j]) x score[j] ) ] where j belongs to the list of vertices that has a connection with i. 
 
 d is the damping factor.
 
@@ -361,7 +361,7 @@ for i in xrange(0,vocab_len):
     Score of mixed: 0.235822
 
 
-### Phrase Partiotioning
+### Phrase Partitioning
 
 Paritioning lemmatized_text into phrases using the stopwords in it as delimeters.
 The phrases are also candidates for keyphrases to be extracted. 
