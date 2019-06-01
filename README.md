@@ -256,7 +256,7 @@ for i in xrange(0,vocab_len):
         if j==i:
             weighted_edge[i][j]=0
         else:
-            for window_start in xrange(0,(len(processed_text)-window_size)):
+            for window_start in xrange(0,(len(processed_text)-window_size+1)):
                 
                 window_end = window_start+window_size
                 
